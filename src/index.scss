@@ -1,0 +1,23 @@
+@import "variables";
+@import "normalize";
+
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  font-family: "Cera Pro", "Hanged Letters", sans-serif;
+  color: $mainColor;
+}
+* {
+  font-size: 16px;
+  font-style: normal;
+  color: $mainColor;
+}
+
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 10px;
+}

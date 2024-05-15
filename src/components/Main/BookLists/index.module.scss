@@ -1,0 +1,67 @@
+@import "../../../variables.scss";
+
+.booksLists {
+  .dateOfIssue {
+    font-weight: 600;
+    font-size: 25px;
+    padding-left: 10px;
+  }
+
+  .carousel {
+    margin-bottom: 50px;
+  }
+
+  .book:hover {
+    border: 2px solid rgb(123, 223, 76);
+    transition: all 0.1 ease-in-out;
+  }
+
+  .book {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    padding: 25px;
+
+    width: 230px;
+    min-height: 600px;
+    max-height: 650px;
+
+    border-radius: 10px;
+
+    border: 2px solid gray;
+
+    img {
+      height: 200px;
+    }
+
+    .nameBook {
+      font-weight: bold;
+      font-size: 20px;
+      padding-bottom: 5px;
+    }
+    .author {
+      color: $authorColor;
+      margin-top: 5px;
+      padding-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 5px;
+      font-size: 17px;
+    }
+    .isbn {
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+  }
+}
+.skeletonLists {
+  display: flex;
+  margin-bottom: 50px;
+
+  .skeletonBlock {
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,25 @@
+.container {
+  background-color: rgb(124, 196, 91);
+  .header {
+    max-width: 1220px;
+    height: 150px;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .nameBlock {
+      display: flex;
+      align-items: center;
+      img {
+        width: 100px;
+        height: 100px;
+      }
+      .siteName {
+        font-size: 40px;
+        margin-left: 20px;
+      }
+    }
+  }
+}
