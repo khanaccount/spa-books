@@ -4,7 +4,7 @@ import s from "./index.module.scss";
 import BookLists from "./BookLists";
 import BestBooks from "./BestBooks";
 
-import { ref, onValue } from "firebase/database";
+import { ref, onValue, remove } from "firebase/database";
 import { SelectChangeEvent } from "@mui/material";
 import { db } from "../../config/firebaseConfig";
 import { Books } from "../../types";
@@ -34,6 +34,12 @@ const Main: React.FC = () => {
     setFilter(value);
   };
 
+  const handleDelete = (year: string, id: number) => {
+    const yearKey = year || "noPublicationYear";
+    const booksRef = ref(db, `books/${yearKey}/${id}`);
+    remove(booksRef);
+  };
+
   const handleFindBest = () => {
     const currentDate = new Date();
     currentDate.setFullYear(currentDate.getFullYear() - 3);
@@ -43,16 +49,17 @@ const Main: React.FC = () => {
 
     for (const year in books) {
       books[year].forEach((book) => {
-        const bookPublicationDate = new Date(book.age);
+        const bookPublicationDate = new Date(parseInt(year), 0);
 
         // не менее 3 лет назад
         if (bookPublicationDate <= currentDate) {
           if (Number(book.rating) > highestRating) {
             highestRating = Number(book.rating);
-            bestBook = book;
+            bestBook = { ...book, publicationYear: parseInt(year) };
           } else if (Number(book.rating) === highestRating && bestBook) {
             // выбираем книгу случайным образом
-            bestBook = Math.random() < 0.5 ? book : bestBook;
+            bestBook =
+              Math.random() < 0.5 ? { ...book, publicationYear: parseInt(year) } : bestBook;
           }
         }
       });
@@ -63,7 +70,14 @@ const Main: React.FC = () => {
   return (
     <main className={s.main}>
       <BestBooks isLoading={isLoading} bestBook={handleFindBest()} />
-      <BookLists books={books} isLoading={isLoading} filter={filter} handleFilter={handleFilter} />
+      <BookLists
+        booksWithoutYear={books.noPublicationYear}
+        books={books}
+        isLoading={isLoading}
+        filter={filter}
+        handleDelete={handleDelete}
+        handleFilter={handleFilter}
+      />
     </main>
   );
 };

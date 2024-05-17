@@ -6,6 +6,7 @@ export type Book = {
   author: string;
   isbn: string;
   name: string;
-  age: number;
+  id: number;
   rating: number | string;
+  publicationYear: number | string;
 };

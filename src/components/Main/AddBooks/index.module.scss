@@ -1,0 +1,39 @@
+.addBooks {
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 400px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 10px;
+    font-size: 25px;
+  }
+
+  input,
+  select {
+    padding: 5px;
+  }
+  input,
+  select:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  .saveBtn {
+    cursor: pointer;
+    background-color: rgb(123, 223, 76);
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .unActiveBtn {
+    cursor: not-allowed;
+    background-color: gray;
+    pointer-events: none;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+}

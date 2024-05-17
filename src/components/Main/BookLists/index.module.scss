@@ -55,6 +55,14 @@
       white-space: nowrap;
       overflow-x: auto;
     }
+    .controls {
+      display: flex;
+      justify-content: space-evenly;
+      svg:hover {
+        border-radius: 10px;
+        background: rgb(123, 223, 76);
+      }
+    }
   }
 }
 .skeletonLists {

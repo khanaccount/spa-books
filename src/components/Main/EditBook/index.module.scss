@@ -1,0 +1,19 @@
+.editForm {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  input {
+    padding: 5px;
+  }
+  input:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  button {
+    cursor: pointer;
+    background-color: rgb(123, 223, 76);
+    margin-top: 5px;
+    border-radius: 5px;
+  }
+}

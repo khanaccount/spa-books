@@ -32,7 +32,7 @@ const BestBooks: React.FC<BestBooksProps> = ({ bestBook, isLoading }) => {
           <p className={s.nameBook}>{bestBook.name}</p>
           <img src={img1} alt="book" />
           <p className={s.author}>{bestBook.author}</p>
-          <p>Выпуск: {bestBook.age} год</p>
+          <p>Год публикации: {bestBook.publicationYear}</p>
           <p>Рейтинг: {bestBook.rating}/10</p>
           <p className={s.isbn}>ISBN: {bestBook.isbn}</p>
         </div>
